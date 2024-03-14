@@ -1,0 +1,142 @@
+
+body {
+  padding-top:50px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  color:#0e48ad;
+}
+
+a:focus, a:hover {
+  color:#123294;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family:"Source Sans Pro",sans-serif;
+  font-weight:bold;
+}
+
+/*This is an alternate class for 'thinner' font weights on headers*/
+.h--alt {
+    font-weight: 300;
+    margin-top:0;
+}
+
+/*Bootstrap OOB header tags are too small. This is an adjustment*/
+
+h5 {
+    font-size:16px;
+}
+
+h6 {
+    font-size:14px;
+}
+
+a {
+    color:#0e48ad;
+}
+
+a:focus, a:hover {
+    color:#123294;
+}
+
+/* -------------------*/
+
+.newsCardView img {
+    width:100%;
+}
+
+/*-- Card View --*/
+
+.cardView {
+    border-style: solid;
+    border-width: 5px 1px 1px;
+    box-shadow: 0 0 0 3px #f5f5f5 inset, 0 0 0 4px #ddd inset;
+    margin: 15px 0;
+    overflow: hidden;
+    padding: 15px;
+    position: relative;
+  border-color:#cfb87c #ddd #ddd;
+}
+
+.cardView:hover {
+    border-color: #cfb87c #ccc #ccc;
+    box-shadow: 0 0 0 3px #eee inset, 0 0 0 4px #ccc inset;
+}
+
+.cardView:hover .moreLink {
+    background:#eee;
+}
+.moreLink {
+    background: #f5f5f5 none repeat scroll 0 0;
+    border-left: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    bottom: -12px;
+    display: block;
+    float: right;
+    font-size: 24px;
+    margin: 10px 0 0;
+    padding: 0 5px 0 10px;
+    position: relative;
+    right: -12px;
+}
+
+.CardView:hover .cardTitle {
+    text-decoration:underline;
+}
+
+.cardView:hover .cardTitle {
+    text-decoration:underline;
+}
+
+.cardView .cardTitle {
+    margin-top:0;
+}
+
+.newsCardView p {
+    color:#333;
+    display:inline;
+}
+
+.newsCardView img {
+    height: auto;
+    width: 100%;
+    margin-bottom:10px;
+    
+}
+
+.cardView > a {
+    color: #333;
+    display: block;
+    margin: -15px;
+    outline: medium none;
+    padding: 15px 15px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.newsCardView .byLine {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.25em;
+}
+
+.cardView .cardCategory {
+    color: #666;
+    display: block;
+    margin-bottom: 0.25em;
+    text-transform: uppercase;
+}
+
+
+.cardView > a:hover, .cardView > a:focus {
+    text-decoration:none;
+}
+
+.cardView .cardTitle {
+    border-color: #ddd;
+}
+
+.cardView .cardTitle::after, .cardView .sf-event-title a::after {
+    line-height:1.15em;
+}

@@ -1,0 +1,146 @@
+
+a,
+[type="submit"] {
+    transition: all .25s ease-in;
+}
+
+.signup__container {
+    top: 50%;
+    right: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    transform: translateY(-50%);
+    overflow: hidden;
+    display: flex;
+    margin-top: 370px;
+    margin-bottom: -360px;
+    align-items: center;
+    justify-content: center;
+    width: 800px;
+    height: 750px;
+    border-radius: 12px;
+    border: 2px;
+    border-top: 8px solid #298977;
+    border-bottom: 8px solid #298977;
+    box-shadow: 0 30px 30px -20px rgba(0, 0, 0, 0.86);
+}
+
+.signup__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #373B44;
+    background: -webkit-linear-gradient(to top, #4286f4, #373B44);
+    background: linear-gradient(to top, #4286f4, #373B44);
+}
+
+.container__child {
+    width: 50%;
+    height: 100%;
+    font-family: cursive;
+    background-image: url('logo/footballlogo.jpg');
+}
+
+.signup__thumbnail {
+    position: relative;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+    background-size: cover;
+}
+
+.thumbnail__content {
+    position: relative;
+    z-index: 2;
+}
+
+.thumbnail__content {
+    align-self: center;
+}
+
+h1,
+h2 {
+    font-weight: 400;
+    color: #2A8E61;
+}
+
+.heading--primary {
+    font-size: 3rem;
+}
+
+.heading--secondary {
+    font-size: 2rem;
+}
+
+.signup__form {
+    padding: 2.5rem;
+    align-items: center;
+    justify-content: center;
+    background: #C7FEB6;
+}
+
+label {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: #2E8313;
+}
+
+.form-control {
+    background-color: transparent;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    border-radius: 15px;
+}
+
+    .form-control :focus {
+        border-color: #02B157;
+    }
+
+[type="text"] {
+    color: #B7004B;
+}
+
+[type="password"] {
+    color: #B7004B;
+}
+
+.btn--form {
+    padding: .5rem 2.5rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #C70052;
+    background: #443E40;
+    border-radius: 35px;
+    width: 200px;
+    height: 34px;
+}
+
+    .btn--form :focus,
+    .btn--form:hover {
+        background: #333333;
+        background: -webkit-linear-gradient(to top, #dd1818, #333333);
+        background: linear-gradient(to top, #dd1818, #333333);
+        color: #00D474;
+    }
+
+.signup__link {
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-decoration: underline;
+    color: #999;
+}
+
+li {
+    color: #2E8313;
+}
+
+.signup__link :focus,
+.signup__link :hover {
+    color: #0C0606;
+}

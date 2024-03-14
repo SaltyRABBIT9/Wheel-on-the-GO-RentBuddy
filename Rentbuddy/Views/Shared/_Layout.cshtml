@@ -1,0 +1,214 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/navbar.css" rel="stylesheet" />
+    <link href="~/Content/footer.css" rel="stylesheet" />
+    <title>RentBuddy</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                @Html.ActionLink("RentBuddy", "Index", "Vehicles", new { area = "" }, new { @class = "navbar-brand", @style = "font-family: cursive; color: #00950D; font-weight: bold; letter-spacing: 2px; font-size: 22px;" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-family: cursive; color: #00950D; font-weight: bold; font-size: 20px; "><span></span>Category<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="@Url.Action("Jeep", "Vehicles")" style="font-family: cursive; color: #00950D; font-weight: bold; font-size: 17px;">
+                                    Jeep
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Bike", "Vehicles")" style="font-family: cursive; color: #00950D; font-weight: bold; font-size: 17px;">
+                                    Car
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Car", "Vehicles")" style="font-family: cursive; color: #00950D; font-weight: bold; font-size: 17px;">
+                                    Motor Bus
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("MicroBus", "Vehicles")" style="font-family: cursive; color: #00950D; font-weight: bold; font-size: 17px;">
+                                    Bike
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="@Url.Action("Index", "Vehicles")" style="font-family: cursive; color: #00950D; font-weight: bold; letter-spacing: 2px; font-size: 20px; ">
+                            Vehicles
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="@Url.Action("TouristPlace", "TouristPlaces")" style="font-family: cursive; color: #00950D; font-weight: bold; letter-spacing: 2px; font-size: 20px; "><span class="glyphicon glyphicon-list-alt"></span>Tourist Place</a></li>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if ((string)Session["type"] == "Customer")
+                        {
+                            <li>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-family: cursive; color: #00950D; font-weight: bold; font-size: 17px; "><span></span>@User.Identity.Name<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="@Url.Action("CustomerProfile", "Customers")" style="font-family: cursive; color: #00950D; font-weight: bold; font-size: 17px;">
+                                            Profile
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Logout", "Customers")" style="font-family: cursive; color: #00950D; font-weight: bold; font-size: 17px;">
+                                            logout
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Create", "OrderMs")" style="font-family: cursive; color: #00950D; font-weight: bold; font-size: 17px;">
+                                            Order
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+                        if ((string)Session["type"] == "Admin")
+                        {
+                            <li>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-family: cursive; color: #00950D; font-weight: bold; font-size: 17px; "><span></span>@User.Identity.Name<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="@Url.Action("AdminProfile", "Admins")" style="font-family: cursive; color: #00950D; font-weight: bold; font-size: 17px;">
+                                            Profile
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("AdminView", "Admins")" style="font-family: cursive; color: #00950D; font-weight: bold; font-size: 17px;">
+                                            Admin View
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Logout", "Admins")" style="font-family: cursive; color: #13392B; font-weight: bold; font-size: 17px;">
+                                            logout
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+
+                    }
+                    else
+                    {
+                        <li><a href="@Url.Action("Login", "Customers")" style="font-family: cursive; color: #00950D; font-weight: bold; letter-spacing: 2px; font-size: 20px; "><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer class="site-footerM img-rounded">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <h6>About</h6>
+                        <p class="text-justify">
+                            <a href="@Url.Action("Index", "Home")">RentBuddy's</a> objective is to provide cheapest rent services
+                            in Cox's Bazar
+                            and then move on to other tourist spots of Bangladesh for providing quality services.
+                        </p>
+                    </div>
+
+                    <div class="col-xs-6 col-md-3">
+                        <h6>Quick Links</h6>
+                        <ul class="footer-linksM">
+                            <li>
+                                <a href="@Url.Action("AllAdmin", "Admins")">About Us</a>
+                            </li>
+                            <li>
+                                <a href="#">Contact Us</a>
+                            </li>
+                            <li>
+                                <a href="#">Privacy Policy</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "Vehicles")">All Vehicle</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-xs-6 col-md-3">
+                        <h6>Check <a href="@Url.Action("Login", "Admins")" style="color: #0CED27; font-size: 24px; font-weight: bold; text-transform: uppercase; margin-top: -10px; letter-spacing: 2.5px ">Out</a></h6>
+                        <ul class="footer-linksM">
+                            <li>
+                                <a href="#">Categories</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("TouristPlace", "TouristPlaces")">Tourist Place</a>
+                            </li>
+                            <li>
+                                <a href="#">Offer</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <ul class="social-iconsM">
+                            <li>
+                                <a class="facebook" href="https://www.facebook.com/index.php">
+                                    <img src="~/Content/logo/facebook.png" />
+                                </a>
+                            </li>
+                            <li>
+                                <a class="twitter" href="https://mobile.twitter.com/i/flow/login">
+                                    <img src="~/Content/logo/twitter.png" />
+                                </a>
+                            </li>
+                            <li>
+                                <a class="messenger" href="https://www.messenger.com/login">
+                                    <img src="~/Content/logo/messenger.png" />
+                                </a>
+                            </li>
+                            <li>
+                                <a class="linkedin" href="https://www.linkedin.com/">
+                                    <img src="~/Content/logo/linkedin.png" />
+                                </a>
+                            </li>
+                            <li>
+                                <a class="instagram" href="https://www.instagram.com/">
+                                    <img src="~/Content/logo/instagram.png" />
+                                </a>
+                            </li>
+                            <li>
+                                <a class="youtube" href="https://www.youtube.com/">
+                                    <img src="~/Content/logo/youtube.png" />
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-8 col-sm-6 col-xs-12">
+                        <p class="copyright-textM">
+                            Copyright &copy; @DateTime.Now.Year All Rights Reserved by
+                            <a href="#">RentBuddy</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

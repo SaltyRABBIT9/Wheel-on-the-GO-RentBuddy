@@ -1,0 +1,77 @@
+﻿@model Rentbuddy.Models.Admin
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<link href="~/Content/profile.css" rel="stylesheet" />
+
+@using (Html.BeginForm("Edit", "Admins", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="wrapper">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Admin_ID)
+        <div class="profile-card js-profile-card">
+            <div class="profile-card__img">
+                @if (Model.Admin_Image != null)
+                {
+                    var imgPath = Model.Admin_Image;
+                    <img src="@Url.Content(imgPath)" alt="profile card">
+                }
+            </div>
+
+            <div class="profile-card__cnt js-profile-cnt">
+
+                <div class="profile-card__txt">
+                    <label>Name</label>
+                    @Html.EditorFor(model => model.Admin_Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Admin_Name, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="profile-card__txt">
+                    <label>Email</label>
+                    @Html.EditorFor(model => model.Admin_Email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Admin_Email, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="profile-card__txt">
+                    <label>Phone No</label>
+                    @Html.EditorFor(model => model.Admin_PhoneNO, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Admin_PhoneNO, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="profile-card__txt">
+                    <label>Address</label>
+                    @Html.EditorFor(model => model.Admin_Address, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Admin_Address, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="profile-card__txt">
+                    <label>Password</label>
+                    @Html.EditorFor(model => model.Admin_Password, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Admin_Password, "", new { @class = "text-danger" })
+                </div>
+
+
+                <div class="profile-card__txt">
+                    <label>Profile Pic</label>
+                    <input type="file" name="AdminImageFile" />
+                </div>
+
+                <div class="m-t-lg">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <input type="submit" value="Save" class="btn btn--form" />
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

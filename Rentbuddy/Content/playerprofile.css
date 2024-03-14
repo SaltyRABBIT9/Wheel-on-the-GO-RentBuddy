@@ -1,0 +1,42 @@
+
+.col-lg-4 {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.jumbotron h1,
+.jumbotron h2,
+.jumbotron h3,
+.jumbotron h4 {
+    text-align: center;
+}
+.jumbotron {
+    padding: 2rem 2rem;
+    background: #D7FED4;
+    box-shadow: 0 16px 16px -8px rgba(0, 0, 0, 0.8);
+}
+.table td,
+.table th {
+  border-top: none;
+}
+
+th {
+  text-align: right;
+  font-style: normal;
+  font-weight: normal;
+}
+td {
+  text-align: center;
+}
+.name {
+  padding-top: 0.5rem;
+}
+.number {
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+}
+.notice {
+  color: #dab804;
+}
+.about {
+  padding-top: 1.4rem;
+}

@@ -1,0 +1,82 @@
+﻿@model Rentbuddy.Models.Category
+
+@{
+    ViewBag.Title = "AddCategory";
+    var success = ViewBag.Success;
+    var failed = ViewBag.Failed;
+}
+
+<link href="~/Content/placeadd.css" rel="stylesheet" />
+<link href="~/Content/adminbutton.css" rel="stylesheet" />
+
+
+<div class="containerX" style="margin-top:20px;">
+
+    <a class="card1" href="@Url.Action("AdminView", "Admins")">
+        <h3>Back To Home</h3>
+        <div class="go-corner">
+            <div class="go-arrow">
+                →
+            </div>
+        </div>
+    </a>
+    <a class="card1" href="@Url.Action("CategoryList", "Categories")">
+        <h3>See All Category</h3>
+        <div class="go-corner">
+            <div class="go-arrow">
+                →
+            </div>
+        </div>
+    </a>
+</div>
+
+
+@using (Html.BeginForm("AddCategory", "Categories", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="signup__container">
+        <div class="container__child signup__thumbnail">
+            <div class="thumbnail__content text-center">
+                <h1 class="heading--primary">Welcome to RentBuddy</h1>
+                @if (success != null)
+                {
+                    <h2 style="color:#85F12B;">
+                        @success
+                    </h2>
+                }
+                else
+                {
+                    <h2 style="color:#85F12B;">
+                        @failed
+                    </h2>
+                }
+            </div>
+        </div>
+        <div class="container__child signup__form">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+                <label>Category Name</label>
+                @Html.EditorFor(model => model.Category_Name, new { htmlAttributes = new { @class = "form-control", @placeholder = "category name" } })
+                @Html.ValidationMessageFor(model => model.Category_Name, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Category Photo</label>
+                <input type="file" name="CategoryImageFile" required />
+            </div>
+
+            <div class="m-t-lg">
+                <ul class="list-inline text-center">
+                    <li>
+                        <input type="submit" value="Add Category" class="btn btn--form" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

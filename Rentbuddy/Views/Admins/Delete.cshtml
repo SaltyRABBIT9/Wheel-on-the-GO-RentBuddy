@@ -1,0 +1,42 @@
+﻿@model Rentbuddy.Models.Admin
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<link href="~/Content/profile.css" rel="stylesheet" />
+
+<div class="wrapper">
+    <div class="profile-card js-profile-card">
+        <div class="profile-card__img">
+            @if (Model.Admin_Image != null)
+            {
+                var imgPath = Model.Admin_Image;
+                <img src="@Url.Content(imgPath)" alt="profile card">
+            }
+        </div>
+
+        <div class="profile-card__cnt js-profile-cnt">
+            <div class="profile-card__name">@Html.DisplayFor(model => model.Admin_Name)</div>
+            <div class="profile-card__txt">@Html.DisplayFor(model => model.Admin_Email)</div>
+            <div class="profile-card__txt">@Html.DisplayFor(model => model.Admin_PhoneNO)</div>
+            <div class="profile-card__txt">@Html.DisplayFor(model => model.Admin_Address)</div>
+        </div>
+
+        <h3 style="text-align:center; color: #00ff21; margin-top: -20px;">Are you sure you want to delete this profile?</h3>
+
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="m-t-lg">
+                <ul class="list-inline text-center">
+                    <li>
+                        <input type="submit" value="Delete" class="btn btn-default" />
+                    </li>
+                </ul>
+            </div>
+        }
+
+    </div>
+</div>

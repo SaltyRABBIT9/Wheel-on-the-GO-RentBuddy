@@ -1,0 +1,100 @@
+﻿@model Rentbuddy.Models.Vehicle
+
+@{
+    ViewBag.Title = "AddVehicle";
+    var success = ViewBag.Success;
+    var failed = ViewBag.Failed;
+}
+
+<link href="~/Content/addteam.css" rel="stylesheet" />
+<link href="~/Content/adminbutton.css" rel="stylesheet" />
+
+<div class="containerX" style="margin-top:20px;">
+    <a class="card1" href="@Url.Action("AdminView", "Admins")">
+        <h3>Back To Home</h3>
+        <div class="go-corner">
+            <div class="go-arrow">
+                →
+            </div>
+        </div>
+    </a>
+    <a class="card1" href="@Url.Action("AllVehicle", "Vehicles")">
+        <h3>See All Vehicle</h3>
+        <div class="go-corner">
+            <div class="go-arrow">
+                →
+            </div>
+        </div>
+    </a>
+</div>
+
+
+@using (Html.BeginForm("AddVehicle", "Vehicles", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="signup__container">
+
+        <div class="container__child signup__form">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <label>Vehicle Cetagory</label>
+                @Html.DropDownList("Category_ID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Category_ID, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Vehicle Name</label>
+                @Html.EditorFor(model => model.Vehicle_Name, new { htmlAttributes = new { @class = "form-control", @placeholder = "vehicle name" } })
+                @Html.ValidationMessageFor(model => model.Vehicle_Name, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>License No</label>
+                @Html.EditorFor(model => model.Vehicle_LicenseNO, new { htmlAttributes = new { @class = "form-control", @placeholder = "license no" } })
+                @Html.ValidationMessageFor(model => model.Vehicle_LicenseNO, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Vehicle Status</label>
+                @Html.EditorFor(model => model.Vehicle_Status, new { htmlAttributes = new { @class = "form-control", @placeholder = "status" } })
+                @Html.ValidationMessageFor(model => model.Vehicle_Status, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Vehicle Image</label>
+                <input type="file" name="VehicleImageFile" required />
+            </div>
+            <div class="form-group">
+                <label>Engine</label>
+                @Html.EditorFor(model => model.Vehicle_Engine, new { htmlAttributes = new { @class = "form-control", @placeholder = "engine" } })
+                @Html.ValidationMessageFor(model => model.Vehicle_Engine, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Rent Price</label>
+                @Html.EditorFor(model => model.Vehicle_Price, new { htmlAttributes = new { @class = "form-control", @placeholder = "TK." } })
+                @Html.ValidationMessageFor(model => model.Vehicle_Price, "", new { @class = "text-danger" })
+            </div>
+            <div class="m-t-lg">
+                <ul class="list-inline text-center">
+                    <li>
+                        <input type="submit" value="Add Vehicle" class="btn btn--form" />
+                    </li>
+                    @if (success != null)
+                    {
+                        <li style="color: #21461e; ">
+                            @success
+                        </li>
+                    }
+                    else
+                    {
+                        <li style="color: #21461e; ">
+                            @failed
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

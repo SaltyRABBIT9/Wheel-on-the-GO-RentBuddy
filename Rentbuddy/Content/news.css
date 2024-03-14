@@ -1,0 +1,84 @@
+@import "https://fonts.googleapis.com/css?family=Source+Sans+Pro:400, 600";
+
+*,
+*::before,
+*::after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    padding: 0px;
+    margin: 0;
+    font-family: "Source Sans Pro", sans-serif;
+}
+
+.cardF {
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: #fafafa;
+    border: 2px;
+    border-top: 8px solid #891111;
+    border-bottom: 8px solid #891111;
+    margin-top: 20px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 20px 21px -12px rgba(0, 0, 0, 0.76);
+}
+
+    .cardF .card-imgF {
+        height: 300px;
+        width: 100%;
+        position: relative;
+        background-size: cover;
+        background-position: center top;
+    }
+
+    .cardF:hover {
+        transition: all .35s;
+        transform: translate3d(0, -5px, 0);
+    }
+
+    .cardF .card-contentF span {
+        margin-bottom: 0.5rem;
+        position: relative;
+        display: block;
+    }
+
+    .cardF svg {
+        position: absolute;
+        top: 0;
+    }
+
+    .cardF .card-contentF {
+        width: 100%;
+        overflow-x: hidden;
+        padding: 10px 20px 30px 20px;
+        position: relative;
+        overflow-y: hidden;
+    }
+
+        .cardF .card-contentF .bttnF {
+            display: inline-block;
+            padding: 7px 8px;
+            text-align: center;
+            border-radius: 3px;
+            background-color: #3e4c53;
+            text-decoration: none;
+            color: #fff;
+            transition: 300ms all;
+            width:100px;
+        }
+
+            .cardF .card-contentF .bttnF:hover {
+                background-color: #3e4c53;
+                color: #fff;
+            }
+
+        .cardF .card-contentF p:first-of-type {
+            margin-top: 0px;
+            text-align: left;
+        }

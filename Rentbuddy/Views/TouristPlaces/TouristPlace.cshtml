@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Rentbuddy.Models.TouristPlace>
+
+@{
+    ViewBag.Title = "TouristPlace";
+}
+
+<link href="~/Content/place.css" rel="stylesheet" />
+<link href="~/Content/placeheader.css" rel="stylesheet" />
+
+<h2 style="text-align:center; font-family:cursive; font-size: 40px; margin-top:20px;"></h2>
+
+@foreach (var item in Model)
+{
+    <div class="flip-card-containerA" style="--hue: 220">
+        <div class="flip-cardA">
+
+
+            <div class="card-frontA">
+                <figure>
+                    <div class="img-bgA"></div>
+                    <img src="@Url.Content(item.TouristPlace_Image)" alt="Profile Image">
+                    <figcaption>@Html.DisplayFor(modelItem => item.TouristPlace_Name)</figcaption>
+                </figure>
+
+                <ul>
+                </ul>
+            </div>
+
+            <div class="card-backA">
+                <figure>
+                    <div class="img-bgA"></div>
+                    <img src="@Url.Content(item.TouristPlace_Image)" alt="Profile Image">
+                </figure>
+
+                <a href="@Url.Action("Details","TouristPlaces",new { id = item.TouristPlace_ID })">See Details</a>
+
+                <div class="design-containerA">
+                    <span class="designA design--1"></span>
+                    <span class="designA design--2"></span>
+                    <span class="designA design--3"></span>
+                    <span class="designA design--4"></span>
+                    <span class="designA design--5"></span>
+                    <span class="designA design--6"></span>
+                    <span class="designA design--7"></span>
+                    <span class="designA design--8"></span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+}

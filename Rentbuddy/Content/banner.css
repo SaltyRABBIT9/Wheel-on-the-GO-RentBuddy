@@ -1,0 +1,99 @@
+html {
+    font-size: 66%;
+}
+
+.buttonH {
+    display: inline-block;
+    padding: 8px 25px;
+    border-radius: 8px;
+}
+
+.button-primaryH {
+    position: relative;
+    background: #00F260;
+    background: -webkit-linear-gradient(to right, #0575E6, #00F260);
+    background: linear-gradient(to right, #0575E6, #00F260);
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: 700;
+    transition: color 0.3s ease-in;
+    z-index: 1;
+}
+
+    .button-primaryH:hover {
+        color: #AA1769;
+        text-decoration: none;
+    }
+
+    .button-primaryH::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: 0;
+        background: #11998e;
+        background: -webkit-linear-gradient(to right, #38ef7d, #11998e);
+        background: linear-gradient(to right, #38ef7d, #11998e);
+        border-radius: 8px;
+        opacity: 0;
+        -webkit-transform: scaleX(0.8);
+        -ms-transform: scaleX(0.8);
+        transform: scaleX(0.8);
+        transition: all 0.4s ease-in;
+        z-index: -1;
+    }
+
+    .button-primaryH:hover::after {
+        opacity: 1;
+        -webkit-transform: scaleX(1);
+        -ms-transform: scaleX(1);
+        transform: scaleX(1);
+    }
+
+.header-areaH {
+    height: 240px;
+    background: #0F2027;
+    background: -webkit-linear-gradient(to top, #2C5364, #203A43, #0F2027);
+    background: linear-gradient(to top, #2C5364, #203A43, #0F2027);
+    box-shadow: 0 24px 28px -12px rgba(0, 0, 0, 0.90);
+}
+
+.bannerH {
+    display: flex;
+    position: relative;
+    height: 100%;
+    color: #CBCBCB;
+    z-index: 1;
+}
+
+    .bannerH h1 {
+        font-weight: 800;
+        margin-bottom: 0.5em;
+        font-size: 3.6rem;
+    }
+
+    .bannerH p {
+        font-weight: 300;
+        margin-bottom: 0.5em;
+        font-size: 1.6rem;
+        line-height: 1.6;
+    }
+
+.content {
+    padding: 120px 0;
+}
+
+@media screen and (min-width: 767px) {
+    .bannerH {
+        padding: 0 150px;
+    }
+
+        .bannerH h1 {
+            font-size: 5rem;
+        }
+
+        .bannerH p {
+            font-size: 2rem;
+        }
+}

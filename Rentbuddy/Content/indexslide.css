@@ -1,0 +1,25 @@
+.carousel-indicators-numbers li {
+    text-indent: 0;
+    margin: 0 2px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 100%;
+    line-height: 30px;
+    color: #fff;
+    background-color: #999;
+    transition: all 0.25s ease;
+}
+    .carousel-indicators-numbers li.active{
+        margin: 0 2px;
+        width: 30px;
+        height: 30px;
+        background-color: #337ab7;
+    }
+
+    .carousel-indicators-numbers li:hover {
+        margin: 0 2px;
+        width: 30px;
+        height: 30px;
+        background-color: #337ab7;
+    }

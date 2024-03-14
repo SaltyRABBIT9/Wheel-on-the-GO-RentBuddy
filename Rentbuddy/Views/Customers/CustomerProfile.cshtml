@@ -1,0 +1,44 @@
+﻿@model Rentbuddy.Models.Customer
+
+@{
+    ViewBag.Title = "CustomerProfile";
+}
+
+<link href="~/Content/profile.css" rel="stylesheet" />
+
+<div class="wrapper">
+    <div class="profile-card js-profile-card">
+        <div class="profile-card__img">
+            @if (Model.Customer_Image != null)
+            {
+                var imgPath = Model.Customer_Image;
+                <img src="@Url.Content(imgPath)" alt="profile card">
+            }
+        </div>
+
+        <div class="profile-card__cnt js-profile-cnt">
+            <div class="profile-card__name">@Html.DisplayFor(model => model.Customer_Name)</div>
+            <div class="profile-card__txt">@Html.DisplayFor(model => model.Customer_Email)</div>
+            <div class="profile-card__txt">@Html.DisplayFor(model => model.Customer_PhoneNO)</div>
+            <div class="profile-card__txt">@Html.DisplayFor(model => model.Customer_Address)</div>
+            <div class="profile-card-loc">
+                <span class="profile-card-loc__txt">
+                    @Html.DisplayFor(model => model.Customer_History)
+                </span>
+            </div>
+        </div>
+        <div>
+            <a href="@Url.Action("Edit", "Customers",new { id = Model.Customer_ID })" style="justify-content: center; text-align: center; float:left;">
+                <h3 style="background: #5B0539; height: 30px; width: 100px; border-radius: 10px; color: #1FD809; padding-left: 4px;">
+                    Edit
+                </h3>
+            </a>
+            <a href="@Url.Action("Delete", "Customers",new { id = Model.Customer_ID })" style="justify-content: center; text-align: center; float:right;">
+                <h3 style="background: #5B0539; height: 30px; width: 100px; border-radius: 10px; color: #1FD809;">
+                    Delete
+                </h3>
+            </a>
+        </div>
+    </div>
+</div>
+

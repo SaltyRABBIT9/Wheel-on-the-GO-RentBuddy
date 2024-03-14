@@ -1,0 +1,50 @@
+﻿@model Rentbuddy.Models.ContactU
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ContactU</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactUS_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactUS_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactUS_PhoneNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactUS_PhoneNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactUS_Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactUS_Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactUS_Message)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactUS_Message)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ContactUS_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

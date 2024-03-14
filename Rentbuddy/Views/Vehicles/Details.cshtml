@@ -1,0 +1,74 @@
+﻿@model Rentbuddy.Models.Vehicle
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Vehicle</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Vehicle_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vehicle_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vehicle_LicenseNO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vehicle_LicenseNO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vehicle_Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vehicle_Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vehicle_Image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vehicle_Image)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vehicle_Engine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vehicle_Engine)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vehicle_Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vehicle_Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.Category_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.Category_Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Vehicle_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

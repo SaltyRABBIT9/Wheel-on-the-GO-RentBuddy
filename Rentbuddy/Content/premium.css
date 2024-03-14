@@ -1,0 +1,68 @@
+﻿.eventd {
+    margin-top: 40px;
+    font-family: cursive;
+}
+
+.event-card-title {
+    margin-bottom: 4em;
+    background: #1f4037;
+    background: -webkit-linear-gradient(to bottom, #99f2c8, #1f4037);
+    background: linear-gradient(to bottom, #99f2c8, #1f4037);
+}
+
+.card-calendar {
+    height: 76px;
+    border-top: 2px solid #105758;
+    width: 100%;
+    background: #CFF6B8;
+    position: absolute;
+    bottom: 0;
+}
+
+.col-date-time {
+    height: 100%;
+    width: 35%;
+    float: left;
+    border-right: 4px solid #105758;
+    text-align: center;
+}
+
+.col-event-time {
+    float: right;
+    width: 65%;
+}
+
+    .col-event-time ul {
+        padding: 0;
+    }
+
+    .col-event-time li {
+        list-style-type: none;
+        text-align: left;
+        padding-bottom: 0.2em;
+    }
+
+.col-day,
+.col-date,
+.col-month {
+    display: block;
+}
+
+.col-day {
+    padding: 0.3em;
+    color: white;
+    font-weight: bold;
+    color: #0B1B02;
+}
+
+.col-date {
+    font-size: 1.5em;
+}
+
+.col-month {
+    color: black;
+}
+
+.col-time {
+    border-bottom: 2px solid #e5e5e5;
+}

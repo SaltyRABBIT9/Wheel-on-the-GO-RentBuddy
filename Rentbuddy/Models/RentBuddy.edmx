@@ -1,0 +1,546 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="RentBuddyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Admin_ID" />
+          </Key>
+          <Property Name="Admin_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Admin_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Admin_Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Admin_PhoneNO" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Admin_Address" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Admin_Password" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Admin_Image" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Category_ID" />
+          </Key>
+          <Property Name="Category_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Category_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Category_Image" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="ContactUS">
+          <Key>
+            <PropertyRef Name="ContactUS_ID" />
+          </Key>
+          <Property Name="ContactUS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ContactUS_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ContactUS_PhoneNo" Type="int" Nullable="false" />
+          <Property Name="ContactUS_Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ContactUS_Message" Type="nvarchar" MaxLength="1000" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Customer_ID" />
+          </Key>
+          <Property Name="Customer_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Customer_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Customer_Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Customer_PhoneNO" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Customer_Address" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Customer_History" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Customer_Password" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Customer_Image" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="CustomerStatus">
+          <Key>
+            <PropertyRef Name="Status_ID" />
+          </Key>
+          <Property Name="Status_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Customer_ID" Type="int" Nullable="false" />
+          <Property Name="Status_Time" Type="varchar" MaxLength="100" />
+          <Property Name="Satus_Date" Type="varchar" MaxLength="100" />
+          <Property Name="Status_Image" Type="varchar(max)" />
+          <Property Name="Status" Type="varchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="OrderM">
+          <Key>
+            <PropertyRef Name="Order_ID" />
+          </Key>
+          <Property Name="Order_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Customer_ID" Type="int" Nullable="false" />
+          <Property Name="Vehicle_ID" Type="int" Nullable="false" />
+          <Property Name="Order_RentHour" Type="int" />
+          <Property Name="Order_FromLocation" Type="varchar" MaxLength="200" />
+          <Property Name="Order_ToLocation" Type="varchar" MaxLength="200" />
+          <Property Name="Order_TotalPrice" Type="float" />
+        </EntityType>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="Payment_ID" />
+          </Key>
+          <Property Name="Payment_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Order_ID" Type="int" Nullable="false" />
+          <Property Name="Payment_Total" Type="float" />
+          <Property Name="Payment_Advance" Type="float" />
+          <Property Name="Payment_Due" Type="float" />
+        </EntityType>
+        <EntityType Name="TouristPlace">
+          <Key>
+            <PropertyRef Name="TouristPlace_ID" />
+          </Key>
+          <Property Name="TouristPlace_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TouristPlace_Name" Type="varchar" MaxLength="100" />
+          <Property Name="TouristPlace_Image" Type="varchar(max)" />
+          <Property Name="TouristPlace_Description" Type="varchar" MaxLength="1000" />
+          <Property Name="TouristPlace_Location" Type="varchar" MaxLength="1000" />
+          <Property Name="TouuristPlace_Lat" Type="varchar(max)" />
+          <Property Name="TouristPlace_long" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Vehicle">
+          <Key>
+            <PropertyRef Name="Vehicle_ID" />
+          </Key>
+          <Property Name="Vehicle_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Category_ID" Type="int" Nullable="false" />
+          <Property Name="Vehicle_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Vehicle_LicenseNO" Type="int" Nullable="false" />
+          <Property Name="Vehicle_Status" Type="varchar" MaxLength="24" Nullable="false" />
+          <Property Name="Vehicle_Image" Type="varchar(max)" />
+          <Property Name="Vehicle_Engine" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Vehicle_Price" Type="float" />
+        </EntityType>
+        <Association Name="FK__CustomerS__Custo__25869641">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="CustomerStatus" Type="Self.CustomerStatus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Customer_ID" />
+            </Principal>
+            <Dependent Role="CustomerStatus">
+              <PropertyRef Name="Customer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderM__Customer__1A14E395">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="OrderM" Type="Self.OrderM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Customer_ID" />
+            </Principal>
+            <Dependent Role="OrderM">
+              <PropertyRef Name="Customer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderM__Vehicle___1B0907CE">
+          <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="1" />
+          <End Role="OrderM" Type="Self.OrderM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehicle">
+              <PropertyRef Name="Vehicle_ID" />
+            </Principal>
+            <Dependent Role="OrderM">
+              <PropertyRef Name="Vehicle_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Payment__Order_I__1DE57479">
+          <End Role="OrderM" Type="Self.OrderM" Multiplicity="1" />
+          <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderM">
+              <PropertyRef Name="Order_ID" />
+            </Principal>
+            <Dependent Role="Payment">
+              <PropertyRef Name="Order_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Vehicle__Categor__1273C1CD">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Category_ID" />
+            </Principal>
+            <Dependent Role="Vehicle">
+              <PropertyRef Name="Category_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RentBuddyModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContactUS" EntityType="Self.ContactUS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomerStatus" EntityType="Self.CustomerStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderM" EntityType="Self.OrderM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TouristPlace" EntityType="Self.TouristPlace" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vehicle" EntityType="Self.Vehicle" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__CustomerS__Custo__25869641" Association="Self.FK__CustomerS__Custo__25869641">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="CustomerStatus" EntitySet="CustomerStatus" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderM__Customer__1A14E395" Association="Self.FK__OrderM__Customer__1A14E395">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="OrderM" EntitySet="OrderM" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderM__Vehicle___1B0907CE" Association="Self.FK__OrderM__Vehicle___1B0907CE">
+            <End Role="Vehicle" EntitySet="Vehicle" />
+            <End Role="OrderM" EntitySet="OrderM" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Payment__Order_I__1DE57479" Association="Self.FK__Payment__Order_I__1DE57479">
+            <End Role="OrderM" EntitySet="OrderM" />
+            <End Role="Payment" EntitySet="Payment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Vehicle__Categor__1273C1CD" Association="Self.FK__Vehicle__Categor__1273C1CD">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Vehicle" EntitySet="Vehicle" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RentBuddyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Admin_ID" />
+          </Key>
+          <Property Name="Admin_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Admin_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Admin_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Admin_PhoneNO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Admin_Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Admin_Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Admin_Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Category_ID" />
+          </Key>
+          <Property Name="Category_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Category_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Category_Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Vehicles" Relationship="Self.FK__Vehicle__Categor__1273C1CD" FromRole="Category" ToRole="Vehicle" />
+        </EntityType>
+        <EntityType Name="ContactU">
+          <Key>
+            <PropertyRef Name="ContactUS_ID" />
+          </Key>
+          <Property Name="ContactUS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContactUS_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContactUS_PhoneNo" Type="Int32" Nullable="false" />
+          <Property Name="ContactUS_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContactUS_Message" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Customer_ID" />
+          </Key>
+          <Property Name="Customer_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Customer_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Customer_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Customer_PhoneNO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Customer_Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Customer_History" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Customer_Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Customer_Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CustomerStatus" Relationship="Self.FK__CustomerS__Custo__25869641" FromRole="Customer" ToRole="CustomerStatus" />
+          <NavigationProperty Name="OrderMs" Relationship="Self.FK__OrderM__Customer__1A14E395" FromRole="Customer" ToRole="OrderM" />
+        </EntityType>
+        <EntityType Name="CustomerStatu">
+          <Key>
+            <PropertyRef Name="Status_ID" />
+          </Key>
+          <Property Name="Status_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Customer_ID" Type="Int32" Nullable="false" />
+          <Property Name="Status_Time" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Satus_Date" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Status_Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK__CustomerS__Custo__25869641" FromRole="CustomerStatus" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="OrderM">
+          <Key>
+            <PropertyRef Name="Order_ID" />
+          </Key>
+          <Property Name="Order_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Customer_ID" Type="Int32" Nullable="false" />
+          <Property Name="Vehicle_ID" Type="Int32" Nullable="false" />
+          <Property Name="Order_RentHour" Type="Int32" />
+          <Property Name="Order_FromLocation" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Order_ToLocation" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Order_TotalPrice" Type="Double" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK__OrderM__Customer__1A14E395" FromRole="OrderM" ToRole="Customer" />
+          <NavigationProperty Name="Vehicle" Relationship="Self.FK__OrderM__Vehicle___1B0907CE" FromRole="OrderM" ToRole="Vehicle" />
+          <NavigationProperty Name="Payments" Relationship="Self.FK__Payment__Order_I__1DE57479" FromRole="OrderM" ToRole="Payment" />
+        </EntityType>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="Payment_ID" />
+          </Key>
+          <Property Name="Payment_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Order_ID" Type="Int32" Nullable="false" />
+          <Property Name="Payment_Total" Type="Double" />
+          <Property Name="Payment_Advance" Type="Double" />
+          <Property Name="Payment_Due" Type="Double" />
+          <NavigationProperty Name="OrderM" Relationship="Self.FK__Payment__Order_I__1DE57479" FromRole="Payment" ToRole="OrderM" />
+        </EntityType>
+        <EntityType Name="TouristPlace">
+          <Key>
+            <PropertyRef Name="TouristPlace_ID" />
+          </Key>
+          <Property Name="TouristPlace_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TouristPlace_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TouristPlace_Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TouristPlace_Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="TouristPlace_Location" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="TouuristPlace_Lat" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TouristPlace_long" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Vehicle">
+          <Key>
+            <PropertyRef Name="Vehicle_ID" />
+          </Key>
+          <Property Name="Vehicle_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Category_ID" Type="Int32" Nullable="false" />
+          <Property Name="Vehicle_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Vehicle_LicenseNO" Type="Int32" Nullable="false" />
+          <Property Name="Vehicle_Status" Type="String" MaxLength="24" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Vehicle_Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Vehicle_Engine" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Vehicle_Price" Type="Double" />
+          <NavigationProperty Name="Category" Relationship="Self.FK__Vehicle__Categor__1273C1CD" FromRole="Vehicle" ToRole="Category" />
+          <NavigationProperty Name="OrderMs" Relationship="Self.FK__OrderM__Vehicle___1B0907CE" FromRole="Vehicle" ToRole="OrderM" />
+        </EntityType>
+        <Association Name="FK__Vehicle__Categor__1273C1CD">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Category_ID" />
+            </Principal>
+            <Dependent Role="Vehicle">
+              <PropertyRef Name="Category_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CustomerS__Custo__25869641">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="CustomerStatus" Type="Self.CustomerStatu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Customer_ID" />
+            </Principal>
+            <Dependent Role="CustomerStatus">
+              <PropertyRef Name="Customer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderM__Customer__1A14E395">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="OrderM" Type="Self.OrderM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Customer_ID" />
+            </Principal>
+            <Dependent Role="OrderM">
+              <PropertyRef Name="Customer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderM__Vehicle___1B0907CE">
+          <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="1" />
+          <End Role="OrderM" Type="Self.OrderM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehicle">
+              <PropertyRef Name="Vehicle_ID" />
+            </Principal>
+            <Dependent Role="OrderM">
+              <PropertyRef Name="Vehicle_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Payment__Order_I__1DE57479">
+          <End Role="OrderM" Type="Self.OrderM" Multiplicity="1" />
+          <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderM">
+              <PropertyRef Name="Order_ID" />
+            </Principal>
+            <Dependent Role="Payment">
+              <PropertyRef Name="Order_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RentBuddyEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admins" EntityType="Self.Admin" />
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="ContactUS" EntityType="Self.ContactU" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="CustomerStatus" EntityType="Self.CustomerStatu" />
+          <EntitySet Name="OrderMs" EntityType="Self.OrderM" />
+          <EntitySet Name="Payments" EntityType="Self.Payment" />
+          <EntitySet Name="TouristPlaces" EntityType="Self.TouristPlace" />
+          <EntitySet Name="Vehicles" EntityType="Self.Vehicle" />
+          <AssociationSet Name="FK__Vehicle__Categor__1273C1CD" Association="Self.FK__Vehicle__Categor__1273C1CD">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Vehicle" EntitySet="Vehicles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CustomerS__Custo__25869641" Association="Self.FK__CustomerS__Custo__25869641">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="CustomerStatus" EntitySet="CustomerStatus" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderM__Customer__1A14E395" Association="Self.FK__OrderM__Customer__1A14E395">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="OrderM" EntitySet="OrderMs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderM__Vehicle___1B0907CE" Association="Self.FK__OrderM__Vehicle___1B0907CE">
+            <End Role="Vehicle" EntitySet="Vehicles" />
+            <End Role="OrderM" EntitySet="OrderMs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Payment__Order_I__1DE57479" Association="Self.FK__Payment__Order_I__1DE57479">
+            <End Role="OrderM" EntitySet="OrderMs" />
+            <End Role="Payment" EntitySet="Payments" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RentBuddyModelStoreContainer" CdmEntityContainer="RentBuddyEntities">
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="RentBuddyModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="Admin_ID" ColumnName="Admin_ID" />
+                <ScalarProperty Name="Admin_Name" ColumnName="Admin_Name" />
+                <ScalarProperty Name="Admin_Email" ColumnName="Admin_Email" />
+                <ScalarProperty Name="Admin_PhoneNO" ColumnName="Admin_PhoneNO" />
+                <ScalarProperty Name="Admin_Address" ColumnName="Admin_Address" />
+                <ScalarProperty Name="Admin_Password" ColumnName="Admin_Password" />
+                <ScalarProperty Name="Admin_Image" ColumnName="Admin_Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="RentBuddyModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="Category_ID" ColumnName="Category_ID" />
+                <ScalarProperty Name="Category_Name" ColumnName="Category_Name" />
+                <ScalarProperty Name="Category_Image" ColumnName="Category_Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContactUS">
+            <EntityTypeMapping TypeName="RentBuddyModel.ContactU">
+              <MappingFragment StoreEntitySet="ContactUS">
+                <ScalarProperty Name="ContactUS_ID" ColumnName="ContactUS_ID" />
+                <ScalarProperty Name="ContactUS_Name" ColumnName="ContactUS_Name" />
+                <ScalarProperty Name="ContactUS_PhoneNo" ColumnName="ContactUS_PhoneNo" />
+                <ScalarProperty Name="ContactUS_Email" ColumnName="ContactUS_Email" />
+                <ScalarProperty Name="ContactUS_Message" ColumnName="ContactUS_Message" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="RentBuddyModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+                <ScalarProperty Name="Customer_Name" ColumnName="Customer_Name" />
+                <ScalarProperty Name="Customer_Email" ColumnName="Customer_Email" />
+                <ScalarProperty Name="Customer_PhoneNO" ColumnName="Customer_PhoneNO" />
+                <ScalarProperty Name="Customer_Address" ColumnName="Customer_Address" />
+                <ScalarProperty Name="Customer_History" ColumnName="Customer_History" />
+                <ScalarProperty Name="Customer_Password" ColumnName="Customer_Password" />
+                <ScalarProperty Name="Customer_Image" ColumnName="Customer_Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerStatus">
+            <EntityTypeMapping TypeName="RentBuddyModel.CustomerStatu">
+              <MappingFragment StoreEntitySet="CustomerStatus">
+                <ScalarProperty Name="Status_ID" ColumnName="Status_ID" />
+                <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+                <ScalarProperty Name="Status_Time" ColumnName="Status_Time" />
+                <ScalarProperty Name="Satus_Date" ColumnName="Satus_Date" />
+                <ScalarProperty Name="Status_Image" ColumnName="Status_Image" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderMs">
+            <EntityTypeMapping TypeName="RentBuddyModel.OrderM">
+              <MappingFragment StoreEntitySet="OrderM">
+                <ScalarProperty Name="Order_ID" ColumnName="Order_ID" />
+                <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+                <ScalarProperty Name="Vehicle_ID" ColumnName="Vehicle_ID" />
+                <ScalarProperty Name="Order_RentHour" ColumnName="Order_RentHour" />
+                <ScalarProperty Name="Order_FromLocation" ColumnName="Order_FromLocation" />
+                <ScalarProperty Name="Order_ToLocation" ColumnName="Order_ToLocation" />
+                <ScalarProperty Name="Order_TotalPrice" ColumnName="Order_TotalPrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payments">
+            <EntityTypeMapping TypeName="RentBuddyModel.Payment">
+              <MappingFragment StoreEntitySet="Payment">
+                <ScalarProperty Name="Payment_ID" ColumnName="Payment_ID" />
+                <ScalarProperty Name="Order_ID" ColumnName="Order_ID" />
+                <ScalarProperty Name="Payment_Total" ColumnName="Payment_Total" />
+                <ScalarProperty Name="Payment_Advance" ColumnName="Payment_Advance" />
+                <ScalarProperty Name="Payment_Due" ColumnName="Payment_Due" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TouristPlaces">
+            <EntityTypeMapping TypeName="RentBuddyModel.TouristPlace">
+              <MappingFragment StoreEntitySet="TouristPlace">
+                <ScalarProperty Name="TouristPlace_ID" ColumnName="TouristPlace_ID" />
+                <ScalarProperty Name="TouristPlace_Name" ColumnName="TouristPlace_Name" />
+                <ScalarProperty Name="TouristPlace_Image" ColumnName="TouristPlace_Image" />
+                <ScalarProperty Name="TouristPlace_Description" ColumnName="TouristPlace_Description" />
+                <ScalarProperty Name="TouristPlace_Location" ColumnName="TouristPlace_Location" />
+                <ScalarProperty Name="TouuristPlace_Lat" ColumnName="TouuristPlace_Lat" />
+                <ScalarProperty Name="TouristPlace_long" ColumnName="TouristPlace_long" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vehicles">
+            <EntityTypeMapping TypeName="RentBuddyModel.Vehicle">
+              <MappingFragment StoreEntitySet="Vehicle">
+                <ScalarProperty Name="Vehicle_ID" ColumnName="Vehicle_ID" />
+                <ScalarProperty Name="Category_ID" ColumnName="Category_ID" />
+                <ScalarProperty Name="Vehicle_Name" ColumnName="Vehicle_Name" />
+                <ScalarProperty Name="Vehicle_LicenseNO" ColumnName="Vehicle_LicenseNO" />
+                <ScalarProperty Name="Vehicle_Status" ColumnName="Vehicle_Status" />
+                <ScalarProperty Name="Vehicle_Image" ColumnName="Vehicle_Image" />
+                <ScalarProperty Name="Vehicle_Engine" ColumnName="Vehicle_Engine" />
+                <ScalarProperty Name="Vehicle_Price" ColumnName="Vehicle_Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

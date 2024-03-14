@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Rentbuddy.Models.Admin>
+
+@{
+    ViewBag.Title = "AllAdmin";
+}
+
+<link href="~/Content/adminlist.css" rel="stylesheet" />
+<h4 style="text-align:center; font-size:30px; margin-top:20px; font-weight:bold;">All Admin</h4>
+@foreach (var item in Model)
+{
+    <section class="dark">
+        <div class="container py-4">
+            <article class="postcard dark blue">
+                <img class="postcard__img" src="@Url.Content(item.Admin_Image)" alt="Image Title" />
+                <div class="postcard__text">
+                    <h1 class="postcard__title blue">@Html.DisplayFor(modelItem => item.Admin_Name)</h1>
+                    <div class="postcard__subtitle small">
+                        <time datetime="2020-05-25 12:00:00">
+                            @DateTime.Now.Day/ @DateTime.Now.Month/ @DateTime.Now.Year
+                        </time>
+                    </div>
+                    <div class="postcard__bar"></div>
+                    <div class="postcard__preview-txt">@Html.DisplayFor(modelItem => item.Admin_Address)</div>
+                    <ul class="postcard__tagbox">
+                        <li class="tag__item play blue">
+                            <a href="#">@Html.DisplayFor(modelItem => item.Admin_Email)</a>
+                        </li>
+                        <li class="tag__item play blue">
+                            <a href="#">@Html.DisplayFor(modelItem => item.Admin_PhoneNO)</a>
+                        </li>
+                    </ul>
+                </div>
+            </article>
+        </div>
+    </section>
+}

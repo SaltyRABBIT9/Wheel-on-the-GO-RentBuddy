@@ -1,0 +1,194 @@
+.site-footerM {
+    padding: 45px 0 20px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #EBFFF1;
+    position: relative;
+    background: #222325;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    box-shadow: 0 20px 21px -12px rgba(0, 0, 0, 0.76);
+}
+
+    .site-footerM h6 {
+        color: #0CED27;
+        font-size: 24px;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-top: -10px;
+        letter-spacing: 2.5px
+    }
+
+    .site-footerM a {
+        color: #D82AB6;
+        text-transform: capitalize;
+    }
+
+    .site-footerM p a {
+        font-size: 18px;
+        background: linear-gradient(to right, #C80606 0, green 20%, #94E16D 20%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: shine 4s infinite linear;
+        animation-fill-mode: forwards;
+    }
+
+@keyframes shine {
+    0% {
+        background-position: 0 60%;
+        background-position: 180px 100%;
+        background-position: 180px;
+    }
+}
+
+.site-footerM a:hover {
+    color: #50F330;
+    text-decoration: none;
+}
+
+.footer-linksM {
+    padding-left: 0;
+    list-style: none
+}
+
+    .footer-linksM li {
+        display: block
+    }
+
+    .footer-linksM a {
+        color: #EBFFF1
+    }
+
+        .footer-linksM a:active, .footer-linksM a:focus, .footer-linksM a:hover {
+            color: #2CD30B;
+            text-decoration: none;
+        }
+
+    .footer-linksM.inline li {
+        display: inline-block
+    }
+
+.site-footerM .social-iconsM {
+    text-align: center;
+    padding-right: 26px;
+}
+
+    .site-footerM .social-iconsM a {
+        width: 36px;
+        height: 36px;
+        line-height: 36px;
+        margin-left: 4px;
+        margin-right: 10px;
+        border-radius: 100%;
+        background-color: #155799
+    }
+
+.copyright-textM {
+    text-align: center;
+    padding-left: 300px;
+    padding-top: 12px;
+    margin: 0
+}
+
+@media (max-width:991px) {
+    .site-footerM [class^=col-] {
+        margin-bottom: 30px
+    }
+}
+
+@media (max-width:767px) {
+    .site-footerM {
+        padding-bottom: 0
+    }
+
+        .site-footerM .copyright-textM, .site-footerM .social-iconsM {
+            text-align: center
+        }
+
+    .copyright-textM {
+        padding-left: 0;
+        padding-top: 0;
+    }
+}
+
+.social-iconsM {
+    padding-left: 4px;
+    text-align: center;
+    margin-bottom: 0;
+    list-style: none
+}
+
+    .social-iconsM li {
+        display: inline-block;
+        margin-bottom: 0px
+    }
+
+        .social-iconsM li.title {
+            margin-right: 15px;
+            text-transform: uppercase;
+            color: #96a2b2;
+            font-weight: 700;
+            font-size: 14px
+        }
+
+    .social-iconsM a {
+        background-color: #eceeef;
+        color: #818a91;
+        font-size: 16px;
+        display: inline-block;
+        line-height: 44px;
+        width: 44px;
+        height: 44px;
+        text-align: center;
+        margin-right: 8px;
+        border-radius: 100%;
+        -webkit-transition: all .2s linear;
+        -o-transition: all .2s linear;
+        transition: all .2s linear
+    }
+
+
+        .social-iconsM a:active, .social-iconsM a:focus, .social-iconsM a:hover {
+            color: #fff;
+            background-color: #29aafe
+        }
+
+    .social-iconsM.size-sm a {
+        line-height: 34px;
+        height: 34px;
+        width: 34px;
+        font-size: 14px
+    }
+
+.social-icons a.facebook:hover {
+    background-color: #1E861E
+}
+
+.social-icons a.twitter:hover {
+    background-color: #00aced
+}
+
+.social-icons a.linkedin:hover {
+    background-color: #007bb6
+}
+
+.social-icons a.messenger:hover {
+    background-color: #237A9A
+}
+
+.social-icons a.instagram:hover {
+    background-color: #E00A65
+}
+
+.social-icons a.youtube:hover {
+    background-color: #C22C2C
+}
+
+@media (max-width:767px) {
+    .social-iconsM li.title {
+        display: block;
+        margin-right: 0;
+        font-weight: 600
+    }
+}

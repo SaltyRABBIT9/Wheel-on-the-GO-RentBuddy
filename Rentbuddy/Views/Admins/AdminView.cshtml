@@ -1,0 +1,117 @@
+﻿
+@{
+    ViewBag.Title = "AdminView";
+}
+
+<link href="~/Content/adminview.css" rel="stylesheet" />
+
+<div class="containerX" style="margin-top:40px;">
+
+    <a class="card1" href="@Url.Action("CategoryList", "Categories")">
+        <h3>Category Management</h3>
+        <ul class="small">
+            <li>Add Category</li>
+            <li>Category Details</li>
+            <li>See All Category</li>
+            <li>Update Category</li>
+        </ul>
+        <div class="dimmer"></div>
+        <div class="go-corner" href="#">
+            <div class="go-arrow">
+                →
+            </div>
+        </div>
+    </a>
+
+    <a class="card1" href="@Url.Action("AllVehicle", "Vehicles")">
+        <h3>Vehicle Management</h3>
+        <ul class="small">
+            <li>Vehicle Details</li>
+            <li>Edit Vehicle Information</li>
+            <li>Add New Vehicle</li>
+            <li>Remove Current Vehicle</li>
+        </ul>
+        <div class="go-corner" href="#">
+            <div class="go-arrow">
+                →
+            </div>
+        </div>
+    </a>
+
+    <a class="card1" href="@Url.Action("CustomerList", "Customers")">
+        <h3>Customer Management</h3>
+        <ul class="small">
+            <li>Customer Details</li>
+            <li>Edit Vehicle History</li>
+            <li>Customer's Order Approval</li>
+            <li>Banned Current Customer</li>
+        </ul>
+        <div class="go-corner" href="#">
+            <div class="go-arrow">
+                →
+            </div>
+        </div>
+    </a>
+
+    <a class="card1" href="@Url.Action("AdminList", "Admins")">
+        <h3>Admin Management</h3>
+        <ul class="small">
+            <li>Admin Details</li>
+            <li>Edit Admin's Informations</li>
+            <li>Add New Admin</li>
+            <li>Remove Current Admin</li>
+        </ul>
+        <div class="dimmer"></div>
+        <div class="go-corner" href="#">
+            <div class="go-arrow">
+                →
+            </div>
+        </div>
+    </a>
+
+    <a class="card1" href="@Url.Action("Index", "OrderMs")">
+        <h3>Order Management</h3>
+        <ul class="small">
+            <li>Order Details</li>
+            <li>Edit Order Information</li>
+            <li>New Order Approval</li>
+        </ul>
+        <div class="dimmer"></div>
+        <div class="go-corner" href="#">
+            <div class="go-arrow">
+                →
+            </div>
+        </div>
+    </a>
+
+    <a class="card1" href="@Url.Action("PlaceList", "TouristPlaces")">
+        <h3>Tourist Place</h3>
+        <ul class="small">
+            <li>Tourist place Details</li>
+            <li>Add New Tourist Place</li>
+            <li>Add New Vehicle</li>
+        </ul>
+        <div class="dimmer"></div>
+        <div class="go-corner" href="#">
+            <div class="go-arrow">
+                →
+            </div>
+        </div>
+    </a>
+    <a class="card1" href="@Url.Action("Index", "ContactUs")">
+        <h3>Contact Management</h3>
+        <ul class="small">
+            <li>Contact Us Details</li>
+            <li>See Customers Review</li>
+            <li>Give Customer Feedback</li>
+        </ul>
+        <div class="dimmer"></div>
+        <div class="go-corner" href="#">
+            <div class="go-arrow">
+                →
+            </div>
+        </div>
+    </a>
+
+</div>
+

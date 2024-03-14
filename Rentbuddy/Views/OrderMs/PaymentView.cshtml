@@ -1,0 +1,102 @@
+﻿@model Rentbuddy.Models.OrderM
+
+@{
+    ViewBag.Title = "PaymentView";
+}
+<link href="~/Content/vehicle.css" rel="stylesheet" />
+<link href="~/Content/order.css" rel="stylesheet" />
+
+<body>
+
+    @Html.AntiForgeryToken()
+    <div class="container">
+        <div class="title">
+            <h2>Vehicle Order Form</h2>
+        </div>
+        <div class="d-flex">
+            <form action="">
+                <div class="signup__container">
+
+                    <div class="container__child signup__form">
+
+                        <div class="form-group">
+                            <label style="color: #3d0707; font-size:20px;">Name</label>
+                            <h4 style="color: #453eeb; font-size:22px;">@Html.DisplayFor(model => model.Customer.Customer_Name)</h4>
+                        </div>
+                        <div class="form-group">
+                            <label style="color: #3d0707; font-size:20px;">Vehicle for rent</label>
+                            <h4 style="color: #453eeb; font-size:22px;"> @Html.DisplayFor(model => model.Vehicle.Vehicle_Name)</h4>
+                            
+                        </div>
+
+                        <div class="form-group">
+                            <label style="color: #3d0707; font-size:20px;">Rent Hour</label>
+                            <h4 style="color: #453eeb; font-size:22px;"> @Html.DisplayFor(model => model.Order_RentHour)</h4>
+                            
+                        </div>
+
+                        <div class="form-group">
+                            <label style="color: #3d0707; font-size:20px;">Address</label>
+                            <h4 style="color: #453eeb; font-size:22px;">@Html.DisplayFor(model => model.Order_FromLocation)</h4>
+                            
+                        </div>
+
+                        <div class="form-group">
+                            <label style="color: #3d0707; font-size:20px;">From Location</label>
+                            <h4 style="color: #453eeb; font-size:22px;">@Html.DisplayFor(model => model.Order_FromLocation)</h4>
+                            
+                        </div>
+
+                        <div class="form-group">
+                            <label style="color: #3d0707; font-size:20px;">To Location</label>
+                            <h4 style="color: #453eeb; font-size:22px;">@Html.DisplayFor(model => model.Order_ToLocation)</h4>
+                            
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+
+            @{
+                int a = Convert.ToInt32(Model.Order_RentHour);
+
+                int b = Convert.ToInt32(Model.Order_TotalPrice);
+
+                int totalz = Convert.ToInt32(a * b);
+            }
+
+
+            <div class="Yorder">
+                <table>
+                    <tr>
+                        <th colspan="2">Your order</th>
+                    </tr>
+                    <tr>
+                        <td>Product Name x @a (days)</td>
+                        <td>@b</td>
+                    </tr>
+                    <tr>
+                        <td>Subtotal</td>
+                        <td>@totalz</td>
+                    </tr>
+                </table><br>
+                <div>
+                    <input type="radio" name="dbt" value="dbt" checked> Direct Bank Transfer
+                </div>
+                <p>
+                    Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.
+                </p>
+                <div>
+                    <input type="radio" name="dbt" value="cd"> Cash on Delivery
+                </div>
+                <div>
+                    <input type="radio" name="dbt" value="cd"> Bkash <span>
+                        <img src="https://www.bkash.com/" alt="" width="50">
+                    </span>
+                </div>
+                <button type="button">Place Order</button>
+            </div><!-- Yorder -->
+        </div>
+    </div>
+
+</body>

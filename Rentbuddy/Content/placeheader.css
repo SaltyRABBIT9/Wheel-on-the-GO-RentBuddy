@@ -1,0 +1,181 @@
+$image6: '//caraujo_pens.surge.sh/images/TC4rvkU.jpg';
+
+*,
+*:before,
+*:after {
+	
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box; 
+}
+
+body{
+	font: {
+		family: 'Martel Sans', sans-serif;
+	}
+	background-color: #000;
+}
+
+section{
+	height: 350px;
+	width: 94%;
+	box-shadow: 0px 0px 146px 21px rgba(0,0,0,0.75);
+	background : {
+		color : #000;
+		repeat: no-repeat;
+		size: cover;
+		position: center center;
+	}
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	margin: 0 auto 0px;
+	a{
+		text: {
+			transform: uppercase;
+			align: center;
+			decoration: none;
+		}
+		font: {
+			size: 4.875em;
+			weight: 900;
+		}
+		color: #fff;
+		&:after, &:before{
+			content: '';
+		}
+	}
+	&:nth-child(2n+1){
+	}
+	&.head{
+		background-color: #fff;
+		position: relative;
+		z-index: 10;
+		a{
+			$w: 652px;
+			$h: 78px;
+			@include a($w, $h);
+			font-weight: 200;
+			color: #BABABA;
+			@include transition(all 2s cubic-bezier(.21,1,.84,1.01) );
+			&:before, &:after{
+				color: #000;
+				font-weight: 900;
+				font-size: 30px;
+				text-transform: none;
+				display: block;
+				@include transition(inherit);
+			}
+			&:before{
+				content: attr(data-bf);
+				position: absolute;
+				top: -45px;
+				left: -5px;
+				
+			}
+			&:after{
+				content: attr(data-af);
+				position: absolute;
+				right: 0;
+				bottom: -30px;
+			}
+			&:hover{
+				@include transform( scale(1.05) );
+				&:before{@include transform( scale(1.2)  translate(-25px, -15px) );}
+				&:after{@include transform( scale(1.2)  translate(25px, 15px) );}
+			}
+		}
+	}
+	
+	&.p15{
+		background-image: url($image6);
+		a{
+			$w : 274px;
+			$h: 58px;
+			@include a($w,$h);
+			line-height: 1;
+			.in, .t1:before, .t1:after, .t2:before, .t2:after{
+				content: '';
+				width: 0px;
+				height: 19px;
+				background-color: #fff;
+				position: absolute;
+				@include transition-property(all);
+				@include transition-duration(.3s);
+				@include transition-timing-function(cubic-bezier(.17,.67,.46,1.45));
+			}
+			.t1{
+				height: 60px;
+				width: 48px;
+				top: 0%;
+				left: -48px;
+				position: absolute;
+				*, &:before, &:after{
+					@include clip(
+						polygon(0 0, 100% 0, 100% 100%, 25% 100%)
+						);
+				}
+				&:before{
+					right: 0;
+				}
+				.in{
+					right: 0;
+					top: 22px;
+				}
+				&:after{
+					right: 0;
+					top: 45px;
+				}
+			}
+			.t2{
+				height: 60px;
+				width: 48px;
+				top: 0%;
+				right: -48px;
+				position: absolute;
+				*, &:before, &:after{
+					@include clip(
+						polygon(0 0, 100% 0, 75% 100%, 0% 100%)
+						);
+				}
+				&:before{
+					left: 0;
+				}
+				.in{
+					left: 0;
+					top: 22px;
+				}
+				&:after{
+					left: 0;
+					top: 45px;
+				}
+			}
+			.t1:before, .t2:before{
+				@include transition-delay(0.0s);
+			}
+			.t1 .in, .t2 .in{
+				@include transition-delay(0.1s);
+			}
+			.t1:after, .t2:after{
+				@include transition-delay(0.2s);
+			}
+			&:hover{
+				.in, .t1:before, .t1:after, .t2:before, .t2:after{
+					width: 48px;
+				}
+				
+				.t1:before,.t2:before{
+					@include transition-delay(0.2s);
+				}
+				.t1 .in, .t2 .in{
+					@include transition-delay(0.1s);
+				}
+				.t1:after, .t2:after{
+					@include transition-delay(0s);
+				}
+				
+
+			}
+		}
+	}
+}

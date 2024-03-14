@@ -1,0 +1,66 @@
+﻿@model Rentbuddy.Models.OrderM
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>OrderM</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Order_RentHour)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Order_RentHour)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Order_FromLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Order_FromLocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Order_ToLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Order_ToLocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Order_TotalPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Order_TotalPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.Customer_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer.Customer_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vehicle.Vehicle_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vehicle.Vehicle_Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Order_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

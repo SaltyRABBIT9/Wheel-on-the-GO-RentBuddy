@@ -1,0 +1,90 @@
+﻿@model Rentbuddy.Models.Admin
+
+@{
+    ViewBag.Title = "AdminDelete";
+}
+
+<link href="~/Content/adminbutton.css" rel="stylesheet" />
+
+
+<div class="containerX" style="margin-top:20px;">
+    <a class="card1" href="@Url.Action("AdminView", "Admins")">
+        <h3>Back To Home</h3>
+        <div class="go-corner">
+            <div class="go-arrow">
+                →
+            </div>
+        </div>
+    </a>
+    <a class="card1" href="@Url.Action("AdminList", "Admins")">
+        <h3>See All Admins</h3>
+        <div class="go-corner">
+            <div class="go-arrow">
+                →
+            </div>
+        </div>
+    </a>
+</div>
+<div>
+    <h4>Admin</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Admin_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Admin_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Admin_Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Admin_Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Admin_PhoneNO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Admin_PhoneNO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Admin_Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Admin_Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Admin_Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Admin_Password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Admin_Image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Admin_Image)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" />
+        </div>
+    }
+</div>

@@ -1,0 +1,64 @@
+﻿@model Rentbuddy.Models.TempCustomer
+@{
+    ViewBag.Title = "Login";
+    var failed = ViewBag.failed;
+}
+
+<link href="~/Content/login.css" rel="stylesheet" />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="login-wrap" style="min-height: 580px; margin-top:30px;">
+        <div class="login-html">
+            <h4 style="font-size: 30px; font-family: cursive; color: yellow; font-weight: bold;">Customer</h4>
+            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+            <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab"><a href="@Url.Action("SignUp","Customers")" style="color: aliceblue; font-weight: bold; ">Sign Up</a></label>
+            <div class="login-form">
+                <div class="sign-in-htm">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="group">
+                        @Html.LabelFor(TempCustomer => TempCustomer.Customer_Name, htmlAttributes: new { @class = "label" })
+                        @Html.EditorFor(TempCustomer => TempCustomer.Customer_Name, new { htmlAttributes = new { @class = "input" } })
+                        @Html.ValidationMessageFor(TempCustomer => TempCustomer.Customer_Name, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="group">
+                        @Html.LabelFor(TempCustomer => TempCustomer.Customer_Email, htmlAttributes: new { @class = "label" })
+                        @Html.EditorFor(TempCustomer => TempCustomer.Customer_Email, new { htmlAttributes = new { @class = "input" } })
+                        @Html.ValidationMessageFor(TempCustomer => TempCustomer.Customer_Email, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="group">
+                        @Html.LabelFor(TempCustomer => TempCustomer.Customer_Password, htmlAttributes: new { @class = "label" })
+                        @Html.EditorFor(TempCustomer => TempCustomer.Customer_Password, new { htmlAttributes = new { @class = "input" } })
+                        @Html.ValidationMessageFor(TempCustomer => TempCustomer.Customer_Password, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="group">
+                        <input type="submit" class="button" value="Sign In">
+                        <h4 class="text-center" style="font-family:cursive; font-size:20px; margin-top:10px; color:#ffd800;">
+                            Don't have an account? PLease <a class="signup__link" href="@Url.Action("SignUp","Customers")" style="color: #4cff00; font-weight:bold;">SignUp</a>
+                        </h4>
+                        @if (failed != null)
+                        {
+                            <h3 style="color:#85F12B;">
+                                @failed
+                            </h3>
+                        }
+                    </div>
+
+                </div>
+                <div class="sign-up-htm">
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

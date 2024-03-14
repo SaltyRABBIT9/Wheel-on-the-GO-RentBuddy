@@ -1,0 +1,96 @@
+﻿@model IEnumerable<Rentbuddy.Models.Customer>
+
+@{
+    ViewBag.Title = "CustomerList";
+}
+
+<link href="~/Content/team.css" rel="stylesheet" />
+<link href="~/Content/adminbutton.css" rel="stylesheet" />
+
+<div class="containerX" style="margin-top:20px;">
+
+    <a class="card1" href="@Url.Action("AdminView", "Admins")">
+        <h3>Back To Home</h3>
+        <div class="go-corner">
+            <div class="go-arrow">
+                →
+            </div>
+        </div>
+    </a>
+</div>
+
+<div class="tableX">
+    <table class="containerD" style="width:1140px;">
+        <thead>
+            <tr>
+                <th>
+                    <h1 style="color: #3BFD0B; margin-left:40px; font-family: cursive; font-size: 20px;">
+                        @Html.DisplayNameFor(model => model.Customer_Name)
+                    </h1>
+                </th>
+                <th>
+                    <h1 style="color: #3BFD0B; margin-left:40px; font-family: cursive; font-size: 20px;">
+                        @Html.DisplayNameFor(model => model.Customer_Email)
+                    </h1>
+                </th>
+                <th>
+                    <h1 style="color: #3BFD0B; margin-left:40px; font-family: cursive; font-size: 20px;">
+                        @Html.DisplayNameFor(model => model.Customer_PhoneNO)
+                    </h1>
+                </th>
+                <th>
+                    <h1 style="color: #3BFD0B; margin-left:40px; font-family: cursive; font-size: 20px;">
+                        @Html.DisplayNameFor(model => model.Customer_Address)
+                    </h1>
+                </th>
+                <th>
+                    <h1 style="color: #3BFD0B; margin-left:40px; font-family: cursive; font-size: 20px;">
+                        @Html.DisplayNameFor(model => model.Customer_History)
+                    </h1>
+                </th>
+                <th>
+                    <h1 style="color: #3BFD0B; font-family: cursive; font-size: 20px;">
+                        @Html.DisplayNameFor(model => model.Customer_Image)
+                    </h1>
+                </th>
+                <th style="width: 180px;">
+                    <h1 style="color: #3BFD0B; font-family:cursive; font-size:20px;">
+                        Controll
+                    </h1>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Customer_Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Customer_Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Customer_PhoneNO)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Customer_Address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Customer_History)
+                    </td>
+                    <td>
+                        @if (item.Customer_Image != null)
+                        {
+                            var imgPath = item.Customer_Image;
+                            <img src="@Url.Content(imgPath)" alt="profile card" style="width:20%; height:20%;">
+                        }
+                    </td>
+                    <td>
+                        @Html.ActionLink("Delete", "ADelete", new { id = item.Customer_ID })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

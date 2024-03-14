@@ -1,0 +1,99 @@
+﻿@model Rentbuddy.Models.Customer
+
+@{
+    ViewBag.Title = "ADelete";
+}
+
+<link href="~/Content/adminbutton.css" rel="stylesheet" />
+
+
+<div class="containerX" style="margin-top:20px;">
+    <a class="card1" href="@Url.Action("AdminView", "Admins")">
+        <h3>Back To Home</h3>
+        <div class="go-corner">
+            <div class="go-arrow">
+                →
+            </div>
+        </div>
+    </a>
+    <a class="card1" href="@Url.Action("CustomerList", "Customers")">
+        <h3>See All Customers</h3>
+        <div class="go-corner">
+            <div class="go-arrow">
+                →
+            </div>
+        </div>
+    </a>
+</div>
+
+<div>
+    <h4>Customer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer_Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer_Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer_PhoneNO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer_PhoneNO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer_Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer_Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer_History)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer_History)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer_Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer_Password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer_Image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer_Image)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" />
+        </div>
+    }
+</div>

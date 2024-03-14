@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Rentbuddy.Models.TouristPlace>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TouristPlace_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TouristPlace_Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TouristPlace_Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TouristPlace_Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TouuristPlace_Lat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TouristPlace_long)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TouristPlace_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TouristPlace_Image)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TouristPlace_Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TouristPlace_Location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TouuristPlace_Lat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TouristPlace_long)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TouristPlace_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TouristPlace_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TouristPlace_ID })
+        </td>
+    </tr>
+}
+
+</table>

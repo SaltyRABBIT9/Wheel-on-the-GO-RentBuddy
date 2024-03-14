@@ -1,0 +1,111 @@
+﻿@model Rentbuddy.Models.Admin
+
+@{
+    ViewBag.Title = "Signup";
+    var success = ViewBag.Success;
+    var failed = ViewBag.Failed;
+}
+
+<link href="~/Content/signupA.css" rel="stylesheet" />
+<link href="~/Content/adminbutton.css" rel="stylesheet" />
+
+
+<div class="containerX" style="margin-top:20px;">
+    <a class="card1" href="@Url.Action("AdminView", "Admins")">
+        <h3>Back To Home</h3>
+        <div class="go-corner">
+            <div class="go-arrow">
+                →
+            </div>
+        </div>
+    </a>
+    <a class="card1" href="@Url.Action("AdminList", "Admins")">
+        <h3>See All Admin</h3>
+        <div class="go-corner">
+            <div class="go-arrow">
+                →
+            </div>
+        </div>
+    </a>
+</div>
+
+
+
+
+@using (Html.BeginForm("Signup", "Admins", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="signup__container">
+        <div class="container__child signup__thumbnail">
+            <div class="thumbnail__content text-center">
+                <h1 class="heading--primary">Welcome to RentBuddy</h1>
+                @if (success != null)
+                {
+                    <h2 style="color:#85F12B;">
+                        @success
+                    </h2>
+                }
+                else
+                {
+                    <h2 style="color:#85F12B;">
+                        @failed
+                    </h2>
+                }
+            </div>
+        </div>
+        <div class="container__child signup__form">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+                <label>Name</label>
+                @Html.EditorFor(model => model.Admin_Name, new { htmlAttributes = new { @class = "form-control", @placeholder = "Your Name" } })
+                @Html.ValidationMessageFor(model => model.Admin_Name, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                @Html.EditorFor(model => model.Admin_Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Email" } })
+                @Html.ValidationMessageFor(model => model.Admin_Email, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                <label>Phone No</label>
+                @Html.EditorFor(model => model.Admin_PhoneNO, new { htmlAttributes = new { @class = "form-control", @placeholder = "+880" } })
+                @Html.ValidationMessageFor(model => model.Admin_PhoneNO, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                <label>Address</label>
+                @Html.EditorFor(model => model.Admin_Address, new { htmlAttributes = new { @class = "form-control", @placeholder = "Address" } })
+                @Html.ValidationMessageFor(model => model.Admin_Address, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                @Html.EditorFor(model => model.Admin_Password, new { htmlAttributes = new { @class = "form-control", @placeholder = "**********" } })
+                @Html.ValidationMessageFor(model => model.Admin_Password, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                <label>Profile Pic</label>
+                <input type="file" name="AdminImageFile" required />
+            </div>
+
+            <div class="m-t-lg">
+                <ul class="list-inline text-center">
+                    <li>
+                        <input type="submit" value="Register" class="btn btn--form" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

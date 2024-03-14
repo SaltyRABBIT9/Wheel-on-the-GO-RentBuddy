@@ -1,0 +1,66 @@
+﻿@model Rentbuddy.Models.Admin
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Admin</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Admin_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Admin_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Admin_Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Admin_Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Admin_PhoneNO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Admin_PhoneNO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Admin_Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Admin_Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Admin_Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Admin_Password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Admin_Image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Admin_Image)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Admin_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

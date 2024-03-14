@@ -1,0 +1,93 @@
+﻿@model Rentbuddy.Models.TouristPlace
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<link href="~/Content/adminbutton.css" rel="stylesheet" />
+
+
+<div class="containerX" style="margin-top:20px;">
+
+    <a class="card1" href="@Url.Action("AdminView", "Admins")">
+        <h3>Back To Home</h3>
+        <div class="go-corner">
+            <div class="go-arrow">
+                →
+            </div>
+        </div>
+    </a>
+    <a class="card1" href="@Url.Action("PlaceList", "TouristPlaces")">
+        <h3>See All Place</h3>
+        <div class="go-corner">
+            <div class="go-arrow">
+                →
+            </div>
+        </div>
+    </a>
+</div>
+
+<div>
+    <h4>TouristPlace</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TouristPlace_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TouristPlace_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TouristPlace_Image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TouristPlace_Image)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TouristPlace_Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TouristPlace_Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TouristPlace_Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TouristPlace_Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TouuristPlace_Lat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TouuristPlace_Lat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TouristPlace_long)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TouristPlace_long)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

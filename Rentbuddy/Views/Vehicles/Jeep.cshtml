@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Rentbuddy.Models.Vehicle>
+
+@{
+    ViewBag.Title = "Jeep";
+}
+
+<link href="~/Content/news.css" rel="stylesheet" />
+
+<div class="container" style="margin-top:80px;">
+    <div class="row mt-5 mb-5">
+
+        @foreach (var item in Model)
+        {
+            <div class="col-xs-12 col-sm-12 col-md-4 d-flex align-items-stretch mb-3">
+                <div class="cardF">
+                    <img class="card-imgF" src="@Url.Content(item.Vehicle_Image)">
+                    <div class="card-contentF">
+                        <label style="font-size:24px; font-family:cursive;">@Html.DisplayFor(modelItem => item.Vehicle_Name)</label>
+                        <h5 style="font-size: 20px; font-family: cursive;">Rent Amount: @Html.DisplayFor(modelItem => item.Vehicle_Price)TK</h5>
+                        <h5 style="font-size: 20px; font-family: cursive;">On Rent: @Html.DisplayFor(modelItem => item.Vehicle_Status)</h5>
+                        <a href="@Url.Action("Create", "OrderMs")" class="bttnF">Rent</a>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>

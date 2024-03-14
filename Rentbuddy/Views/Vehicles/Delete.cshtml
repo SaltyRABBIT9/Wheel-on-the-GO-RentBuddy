@@ -1,0 +1,99 @@
+﻿@model Rentbuddy.Models.Vehicle
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<link href="~/Content/adminbutton.css" rel="stylesheet" />
+
+
+<div class="containerX" style="margin-top:20px;">
+    <a class="card1" href="@Url.Action("AdminView", "Admins")">
+        <h3>Back To Home</h3>
+        <div class="go-corner">
+            <div class="go-arrow">
+                →
+            </div>
+        </div>
+    </a>
+    <a class="card1" href="@Url.Action("AllVehicle", "Vehicles")">
+        <h3>See All Vehicle</h3>
+        <div class="go-corner">
+            <div class="go-arrow">
+                →
+            </div>
+        </div>
+    </a>
+</div>
+
+<div>
+    <h4>Vehicle</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Vehicle_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vehicle_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vehicle_LicenseNO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vehicle_LicenseNO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vehicle_Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vehicle_Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vehicle_Image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vehicle_Image)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vehicle_Engine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vehicle_Engine)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vehicle_Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vehicle_Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.Category_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.Category_Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" />
+        </div>
+    }
+</div>
